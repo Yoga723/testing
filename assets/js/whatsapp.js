@@ -1,33 +1,34 @@
 $(document).on("click", ".send_contact", function () {
   var input_blanter = document.getElementById("names");
 
-  // WhatsApp Settings
+  /* Whatsapp Settings */
   var walink = "https://web.whatsapp.com/send",
-    phone = "6285162992597",
+    phone = "6285780007799",
     walink2 =
       "Salam Hangat, Saya melihat *Website dialogika.co* dan saya tertarik untuk tahu lebih lanjut." +
       "%0A%0A" +
       "Sebelumnya perkenalkan saya: ",
     text_yes = "Terkirim.",
-    text_no = "Isi semua Formulir lalu klik Kirim.";
+    text_no = "Isi semua Formulir lalu klik Send.";
 
-  // Smartphone Support
+  /* Smartphone Support */
   if (
     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       navigator.userAgent
     )
   ) {
-    walink = "whatsapp://send";
+    var walink = "whatsapp://send";
   }
 
-  if (input_blanter.value !== "") {
-    // Call Input Form
+  if ("" != input_blanter.value) {
+    /* Call Input Form */
     var input_name2 = $("#names").val(),
       input_domisili2 = $("#locations").val(),
-      input_program2 = $("#programs :selected").text(),
-      input_message2 = $("#messages").val();
+      input_job2 = $("#works").val(),
+      input_program2 = $("#programs :selected").text();
+    input_message2 = $("#messages").val();
 
-    // Final WhatsApp URL
+    /* Final Whatsapp URL */
     var blanter_whatsapp =
       walink +
       "?phone=" +
@@ -35,7 +36,7 @@ $(document).on("click", ".send_contact", function () {
       "&text=" +
       walink2 +
       "%0A%0A" +
-      "*Nama*         : " +
+      "*Name*         : " +
       input_name2 +
       "%0A" +
       "*Domisili*     : " +
@@ -44,15 +45,17 @@ $(document).on("click", ".send_contact", function () {
       "*Program*      : " +
       input_program2 +
       "%0A" +
-      "*Pesan*        : " +
+      "*Perkerjaan*   : " +
+      input_job2 +
+      "%0A" +
+      "*Isi Message*  : " +
       input_message2 +
       "%0A";
 
-    // WhatsApp Window Open
-      window.open(blanter_whatsapp, "_blank");
-      document.getElementById("text-info").innerHTML =
-        '<span class="yes">' + text_yes + "</span>";
-
+    /* Whatsapp Window Open */
+    window.open(blanter_whatsapp, "_blank");
+    document.getElementById("text-info").innerHTML =
+      '<span class="yes">' + text_yes + "</span>";
   } else {
     document.getElementById("text-info").innerHTML =
       '<span class="no">' + text_no + "</span>";

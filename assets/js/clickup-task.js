@@ -1,150 +1,175 @@
-// Mendapatkan elemen form berdasarkan ID
-document.getElementById('uploadForm').addEventListener('submit', async function (event) {
-    // Mencegah form agar tidak melakukan submit default (page reload)
+$(document).on("click", ".submitBtn", function () {
+  window.open("https://chat.whatsapp.com/HMvvH97Mj4p5HSQYDbRnPM", "_blank");
+});
+
+document
+  .getElementById("uploadForm")
+  .addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    // Mengambil referensi elemen form dan input yang ada di dalamnya
-    const form = document.getElementById('uploadForm');
-    const name = document.getElementById('names').value.trim(); 
-    const whatsapp = document.getElementById('whatsapps').value.trim();
-    const location = document.getElementById('location').value.trim();
-    const program = document.getElementById('programs').value;
-    const note = document.getElementById('messages').value.trim();
+    const taskName = document.getElementById("name").value.trim();
+    // Dapat value dari /part/international-phone-number/script.js
+    const whatsapp = iti.getNumber();
+    const motivate = document.getElementById("motivate").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const jobInputs = document.querySelectorAll("#job");
+    const jobs = Array.from(jobInputs)
+      .map((input) => input.value.trim())
+      .filter((value) => value);
+    const loading = document.getElementById("loading");
+    const success = document.getElementById("success");
 
-    // const email = document.getElementById('email').value.trim();
-    // const linkedin = document.getElementById('linkedin').value.trim();
-    // const channelCheckboxes = document.querySelectorAll('input[name="channel"]:checked');
-    
-    // const workType = document.getElementById('workType').value;
-    // const position = document.getElementById('position').value;
-    // const motivate = document.getElementById('motivate').value.trim();
-    // const fileInput = document.getElementById('pdf');
-    // const file = fileInput.files[0];
-    // const birthDate = document.getElementById('birthDate').value;
-    const loading = document.getElementById('loading');
-    const success = document.getElementById('success');
+    if (!taskName) {
+      alert("Nama tugas harus diisi.");
+      return;
+    }
+    if (!jobs.length) {
+      alert("Profesi harus dipilih.");
+      return;
+    }
+    if (!whatsapp) {
+      alert("Nomor Whatsapp harus diisi.");
+      return;
+    }
 
-    // Mengambil semua checkbox channel yang dicentang dan memasukkannya ke array
-    const channels = Array.from(channelCheckboxes).map(checkbox => checkbox.value);
-
-    // Validasi sederhana untuk memastikan semua kolom diisi sebelum dikirim
-    // if (!name || !umur || !email || channels.length === 0 || !location || !position || !motivate || !linkedin || !birthDate) {
-    //     alert('Semua kolom harus diisi.');
-    //     return;
-    // }
-
-    // // Validasi file yang diunggah harus berformat PDF
-    // if (!file || file.type !== 'application/pdf') {
-    //     alert('Silakan unggah file PDF.');
-    //     return;
-    // }
-
-    // // Konversi tanggal lahir menjadi timestamp (milidetik sejak 1 Januari 1970)
-    // const birthDateObject = new Date(birthDate);
-    // if (isNaN(birthDateObject.getTime())) {
-    //     alert('Tanggal lahir tidak valid.');
-    //     return;
-    // }
-    // const birthDateTimestamp = birthDateObject.getTime(); 
-
-    // Menampilkan animasi loading saat proses pengunggahan berjalan
-    loading.style.display = 'flex';
-    success.style.display = 'none';
-
-    // API Token dan List ID ClickUp untuk otentikasi dan referensi
-    const apiToken = 'pk_3640079_B56O8X0HW6FAEIZJFFJAQW99IAHQMF8N';
-    const listId = '14355106';
+    const apiToken = "pk_3640079_B56O8X0HW6FAEIZJFFJAQW99IAHQMF8N";
+    const listId = "900302342659";
+    let taskId = null; // Variabel untuk menyimpan task ID
 
     try {
-        // Membuat task baru di ClickUp dengan data yang sudah diinputkan
-        const createTaskResponse = await fetch(`https://api.clickup.com/api/v2/list/${listId}/task`, {
-            method: 'POST',
-            headers: {
-                'Authorization': apiToken,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,  // Nama task yang akan dibuat
-                custom_fields: [ // Custom fields yang disimpan ke dalam task
-                    {
-                        id: '562e180b-6664-483e-8f44-28902bfe4fbe', // Umur
-                        value: parseInt(whatsapp)
-                    },
-                    {
-                        id: 'f3c74d35-738f-4d34-bf63-eecaf8e57b84', // Posisi
-                        value: program
-                    },
-                    {
-                        id: 'aa774e5f-da8b-43c7-8a6f-f0cf731a6631', // Lokasi
-                        value: location
-                    },
-                    {
-                        id: '856f5a4e-fe7b-4ca3-8f2a-82ba0a1816b2', //notes
-                        value: note
-                    },
-                    {
-                        id: '08063cb2-73f3-46d2-8d8e-0294bc714d52', // Username (Sama dengan nama pengguna)
-                        value: name
-                    }
-                ]
-            })
-        });
+      loading.style.display = "flex";
 
-        const createdTask = await createTaskResponse.json();
-        
-        // Jika task gagal dibuat, tampilkan pesan error
-        if (!createTaskResponse.ok) {
-            const error = await createTaskResponse.json();
-            throw new Error('Kesalahan saat membuat tugas: ' + (error.err || 'Kesalahan tidak diketahui'));
+      // Langkah 1: Send GET Request ke Clickup
+      const checkTaskResponse = await fetch(
+        `https://api.clickup.com/api/v2/list/${listId}/task?subtasks=true`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: apiToken,
+            "Content-Type": "application/json",
+          },
         }
+      );
 
-        const taskId = createdTask.id;  // Ambil ID task yang baru dibuat
+      if (!checkTaskResponse.ok) {
+        throw new Error("Gagal memeriksa duplikasi tugas.");
+      }
 
-        // Menambahkan komentar ke task dengan detail informasi pengguna
-        const commentResponse = await fetch(`https://api.clickup.com/api/v2/task/${taskId}/comment`, {
-            method: 'POST',
-            headers: {
-                'Authorization': apiToken,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                comment_text: `Nama: ${name}\nWhatsapp: ${whatsapp}\nMotivasi: ${note}`
-            })
+      const tasks = await checkTaskResponse.json(); // response data dari clickup
+
+      // Variable sementara untuk menyimpan nomor whatsapp dan task yang sama.
+      let existingWA = null;
+      let matchedTask = null;
+
+      tasks.tasks.forEach((task) => {
+        task.custom_fields.forEach((field) => {
+          if (field.name === "Whatsapp" && field.value === whatsapp) {
+            existingWA = field.value; // Simpan nomor whatsapp yang sama
+            matchedTask = task; // Simpan task clickup yang sama
+          }
         });
+      });
 
-        // Jika gagal menambahkan komentar, tampilkan pesan error
-        if (!commentResponse.ok) {
-            const error = await commentResponse.json();
-            throw new Error('Kesalahan saat menambahkan komentar: ' + (error.err || 'Kesalahan tidak diketahui'));
-        }
-
-        // Mengunggah file PDF yang diinput ke task yang baru dibuat
-        const formData = new FormData();
-        formData.append('attachment', file, file.name);
-
-        const uploadFileResponse = await fetch(`https://api.clickup.com/api/v2/task/${taskId}/attachment`, {
-            method: 'POST',
+      if (matchedTask) {
+        // Hapus matched task/data yang sama
+        taskId = matchedTask.id;
+        const deleteTaskResponse = await fetch(
+          `https://api.clickup.com/api/v2/task/${taskId}`,
+          {
+            method: "DELETE",
             headers: {
-                'Authorization': apiToken
+              Authorization: apiToken,
+              "Content-Type": "application/json",
             },
-            body: formData
-        });
+          }
+        );
 
-        // Sembunyikan animasi loading setelah proses selesai
-        loading.style.display = 'none';
-
-        // Jika file berhasil diunggah, tampilkan pesan sukses
-        if (uploadFileResponse.ok) {
-            form.style.display = 'none';  // Sembunyikan form setelah berhasil
-            success.style.display = 'block';  // Tampilkan pesan sukses
-        } else {
-            const error = await uploadFileResponse.json();
-            alert('Kesalahan saat mengunggah file: ' + (error.err || 'Kesalahan tidak diketahui'));
+        if (!deleteTaskResponse.ok) {
+          throw new Error("Gagal menghapus tugas lama.");
         }
+      }
+
+      // Langkah 2: Buat task baru setelah task lama dihapus (atau jika task tidak ada)
+      const createTaskResponse = await fetch(
+        `https://api.clickup.com/api/v2/list/${listId}/task`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: apiToken,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: taskName,
+            description: "Task dengan field channels",
+            custom_fields: [
+              {
+                id: "218de446-5037-4d3a-9f85-96c047453fe9", // ID untuk field "motivate"
+                value: motivate,
+              },
+              {
+                id: "4d4ea89a-2c98-467a-8452-a6d1794036ab", // ID untuk field "location"
+                value: location, // Lokasi baru
+              },
+              {
+                id: "41fe905e-8974-4bf3-a871-daddd8c4307a", // ID untuk field "jobs"
+                value: jobs,
+              },
+              {
+                id: "562e180b-6664-483e-8f44-28902bfe4fbe", // ID untuk field "whatsapp"
+                value: whatsapp,
+              },
+            ],
+          }),
+        }
+      );
+
+      if (!createTaskResponse.ok) throw new Error("Gagal membuat tugas baru.");
+
+      const createdTaskData = await createTaskResponse.json();
+      taskId = createdTaskData.id; // Simpan task ID yang baru dibuat
+
+      loading.style.display = "none";
     } catch (error) {
-        // Menangkap semua kesalahan dan menampilkan pesan kesalahan
-        console.error('Kesalahan:', error);
-        alert('Terjadi kesalahan. Silakan coba lagi.');
-        loading.style.display = 'none';  // Sembunyikan loading jika terjadi kesalahan
+      console.error("Kesalahan:", error);
+      alert(
+        "Terjadi kesalahan: " + (error.message || "Kesalahan tidak diketahui.")
+      );
     }
-});
+  });
+
+// Function untuk cek id custom field clickup
+document
+  .getElementById("getClickupData")
+  .addEventListener("click", async (event) => {
+    const apiToken = "pk_3640079_B56O8X0HW6FAEIZJFFJAQW99IAHQMF8N";
+    const listId = "14355106";
+    let taskId = null; // Variabel untuk menyimpan task ID
+
+    try {
+      loading.style.display = "flex";
+
+      // Langkah 1: Send GET Request ke Clickup
+      const checkTaskResponse = await fetch(
+        `https://api.clickup.com/api/v2/list/${listId}/field`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: apiToken,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!checkTaskResponse.ok) {
+        throw new Error("Gagal memeriksa duplikasi tugas.");
+      }
+
+      const tasks = await checkTaskResponse.json(); // response data dari clickup
+
+      // Variable sementara untuk menyimpan nomor whatsapp dan task yang sama.
+      let existingWA = null;
+      let matchedTask = null;
+      console.log("ini response:", checkTaskResponse);
+      console.log("ini tasks :", tasks);
+    } catch {}
+  });
