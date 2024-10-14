@@ -1,5 +1,5 @@
 $(document).on("click", ".send_contact", function () {
-  var input_blanter = document.getElementById("names");
+  var input_blanter = document.getElementById("name");
 
   /* Whatsapp Settings */
   var walink = "https://web.whatsapp.com/send",
@@ -22,7 +22,7 @@ $(document).on("click", ".send_contact", function () {
 
   if ("" != input_blanter.value) {
     /* Call Input Form */
-    var input_name2 = $("#names").val(),
+    var input_name2 = $("#name").val(),
       input_domisili2 = $("#locations").val(),
       input_job2 = $("#works").val(),
       input_program2 = $("#programs :selected").text();

@@ -1,15 +1,13 @@
-$(document).on("click", ".submitBtn", function () {
-  window.open("https://chat.whatsapp.com/HMvvH97Mj4p5HSQYDbRnPM", "_blank");
-});
-
 document
   .getElementById("uploadForm")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
 
+    console.log("hello world")
     const taskName = document.getElementById("name").value.trim();
     // Dapat value dari /part/international-phone-number/script.js
     const whatsapp = iti.getNumber();
+
     const motivate = document.getElementById("motivate").value.trim();
     const location = document.getElementById("location").value.trim();
     const jobInputs = document.querySelectorAll("#job");
@@ -20,7 +18,7 @@ document
     const success = document.getElementById("success");
 
     if (!taskName) {
-      alert("Nama tugas harus diisi.");
+      alert("Nama harus diisi.");
       return;
     }
     if (!jobs.length) {
@@ -137,39 +135,40 @@ document
     }
   });
 
-// Function untuk cek id custom field clickup
-document
-  .getElementById("getClickupData")
-  .addEventListener("click", async (event) => {
-    const apiToken = "pk_3640079_B56O8X0HW6FAEIZJFFJAQW99IAHQMF8N";
-    const listId = "14355106";
-    let taskId = null; // Variabel untuk menyimpan task ID
+// Function untuk cek id custom field di clickup
+// Buat saja button dan masukkan id dari link clickupnya
+// document
+//   .getElementById("getClickupData")
+//   .addEventListener("click", async (event) => {
+//     const apiToken = "pk_3640079_B56O8X0HW6FAEIZJFFJAQW99IAHQMF8N";
+//     const listId = "14355106";
+//     let taskId = null; // Variabel untuk menyimpan task ID
 
-    try {
-      loading.style.display = "flex";
+//     try {
+//       loading.style.display = "flex";
 
-      // Langkah 1: Send GET Request ke Clickup
-      const checkTaskResponse = await fetch(
-        `https://api.clickup.com/api/v2/list/${listId}/field`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: apiToken,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+//       // Langkah 1: Send GET Request ke Clickup
+//       const checkTaskResponse = await fetch(
+//         `https://api.clickup.com/api/v2/list/${listId}/field`,
+//         {
+//           method: "GET",
+//           headers: {
+//             Authorization: apiToken,
+//             "Content-Type": "application/json",
+//           },
+//         }
+//       );
 
-      if (!checkTaskResponse.ok) {
-        throw new Error("Gagal memeriksa duplikasi tugas.");
-      }
+//       if (!checkTaskResponse.ok) {
+//         throw new Error("Gagal memeriksa duplikasi tugas.");
+//       }
 
-      const tasks = await checkTaskResponse.json(); // response data dari clickup
+//       const tasks = await checkTaskResponse.json(); // response data dari clickup
 
-      // Variable sementara untuk menyimpan nomor whatsapp dan task yang sama.
-      let existingWA = null;
-      let matchedTask = null;
-      console.log("ini response:", checkTaskResponse);
-      console.log("ini tasks :", tasks);
-    } catch {}
-  });
+//       // Variable sementara untuk menyimpan nomor whatsapp dan task yang sama.
+//       let existingWA = null;
+//       let matchedTask = null;
+//       console.log("ini response:", checkTaskResponse);
+//       console.log("ini tasks :", tasks);
+//     } catch {}
+//   });

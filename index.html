@@ -34,8 +34,8 @@
 	<link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
 	<link href="assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 	<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	<link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 	<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 	<link href="assets/vendor/swiper/swiper-bundle.css" rel="stylesheet">
 
@@ -46,7 +46,6 @@
 	<link href="assets/part/breadcrumbs-banner/banner.css" rel="stylesheet">
 	<link href="assets/part/course-mentor/course.css" rel="stylesheet">
 	<link href="assets/part/team-impact/team.css" rel="stylesheet">
-	<link href="assets/part/counting-down/count.css" rel="stylesheet">
 	<link href="assets/part/schedule-event/schedule.css" rel="stylesheet">
 	<link href="assets/part/contact-append/contact.css" rel="stylesheet">
 	<link href="assets/part/popup-box/popup.css" rel="stylesheet">
@@ -228,21 +227,12 @@
 						<!-- Hero Form -->
 						<div class="hero-form-container position-relative ">
 
-							<!-- Image for mobile -->
-							<!-- <div class="d-block d-lg-none justify-content-center align-items-center mobile-img">
-									<div class="device device--right  ">
-										<img src="assets/img/referral-assets/image-form-group.webp" class="device__image"
-											alt="Device Image">
-									</div>
-								</div> -->
-							<!-- End of Image for mobile -->
-
 							<form id="uploadForm" class="php-email-form needs-validation" style="position: relative;">
 								<div class="row gy-4">
 									<!-- Nama Lengkap -->
 									<div class="col-md-6">
 										<label for="names" class="label-input">Nama Lengkap*</label>
-										<input type="text" id="names" name="name" class="form-control"
+										<input type="text" id="name" name="name" class="form-control"
 											placeholder=" John Doe" required>
 									</div>
 
@@ -258,13 +248,13 @@
 									<div class="md-12" style="margin-top: 10px;">
 										<label for="locations" class="label-input">Domisili *</label>
 										<input type="text" class="form-control" placeholder=" Jl. Malioboro, Yogyakarta"
-											name="Location" id="locations" pattern="[a-zA-Z\s]{3,100}" required
+											name="Location" id="location" pattern="[a-zA-Z\s]{3,100}" required
 											autocomplete="address-level1">
 									</div>
 
 									<!-- Submit Button -->
 									<div class="md-12 text-center">
-										<button id="submits" type="submit" class="send_contact">
+										<button id="send_contact" type="submit" class="send_contact">
 											<a>Kirim Whatsapp</a></button>
 									</div>
 
@@ -289,71 +279,76 @@
 
 		<!-- End of Hero -->
 
-		<section class="section" id='partner'>
+		<section class="section" id='partner' style="background: #F8F8F8;">
 			<!-- Start of Clients Section -->
 			<div class="container" id="partners">
-				<h2 class="section-title section-title-benefit section-title--center" style="width: 100%;">Partner Kami
-				</h2>
+				<div class="d-flex flex-lg-row flex-column align-items-center" >
+					<div class=" m-auto ">
 
-				<div class="d-flex gap-4 flex-column justify-content-center align-items-center">
-					<p class="w-75 text-center fs-6">Dialogika bermitra dengan universitas dan korporasi terkemuka yang
-						berfokus pada pengembangan keterampilan komunikasi. Mitra resmi kami siap membantu kebutuhan pelatihan dan pengembangan Anda.</p>
-
-					<div class="row gap-3 partners-imgs-wrapper">
-						
-						<div class="col-12 partner-wrapper">
-							<img src="assets/img/corporate/uad.png" class="img-fluid" alt="Image 1" />
-						</div>
-						<div class="col-12 partner-wrapper">
-							<img src="assets/img/corporate/amikom.png" class="img-fluid" alt="Image 2" />
-						</div>
-						<div class="col-12 partner-wrapper">
-							<img src="assets/img/corporate/aveon.png" class="img-fluid" alt="Image 3" />
-						</div>
-						<div class="col-12 partner-wrapper">
-							<img src="assets/img/corporate/avo.png" class="img-fluid" alt="Image 4" />
-						</div>
-						<div class="col-12 partner-wrapper">
-							<img src="assets/img/corporate/gides.jpg" class="img-fluid" alt="Image 5" />
-						</div>
-
-						<div class="col-12 partner-wrapper d-none d-md-block">
-							<img src="assets/img/corporate/kdi.png" class="img-fluid" alt="Image 6" />
-						</div>
-						<div class="col-12 partner-wrapper d-none d-md-block">
-							<img src="assets/img/corporate/kusuma.png" class="img-fluid" alt="Image 7" />
-						</div>
-						<div class="col-12 partner-wrapper d-none d-md-block">
-							<img src="assets/img/corporate/mercu.png" class="img-fluid" alt="Image 8" />
-						</div>
-						<div class="col-12 partner-wrapper d-none d-md-block">
-							<img src="assets/img/corporate/polita.png" class="img-fluid" alt="Image 9" />
-						</div>
-
-						<div class="col-12 partner-wrapper d-none d-lg-block" id="hiddenImages">
-							<img src="assets/img/corporate/ruhui-rahayu.png" class="img-fluid" alt="Image 10" />
-						</div>
-						<div class="col-12 partner-wrapper d-none d-lg-block" id="hiddenImages">
-							<img src="assets/img/corporate/smk-dr-sutomo-temanggung.png" class="img-fluid"
-								alt="Image 11" />
-						</div>
-						<div class="col-12 partner-wrapper d-none d-lg-block" id="hiddenImages">
-							<img src="assets/img/corporate/uad.png" class="img-fluid" alt="Image 12" />
-						</div>
-						<div class="col-12 partner-wrapper d-none d-lg-block" id="hiddenImages">
-							<img src="assets/img/corporate/uii.png" class="img-fluid" alt="Image 13" />
-						</div>
-						<div class="col-12 partner-wrapper d-none d-lg-block" id="hiddenImages">
-							<img src="assets/img/corporate/uin-suka.png" class="img-fluid" alt="Image 14" />
-						</div>
-						<div class="text-center mt-4 d-lg-none">
-							<button class="showMorePartnerBtn" id="showMorePartner">Show More</button>
-						  </div>
+						<h2 class="section-title section-title-benefit w-100">
+							Partner
+							Kami
+						</h2>
+						<p class="w-100 text-left fs-6">Dialogika bermitra dengan universitas dan korporasi terkemuka
+							yang
+							berfokus pada pengembangan keterampilan komunikasi. Mitra resmi kami siap membantu kebutuhan
+							pelatihan dan pengembangan Anda.</p>
 					</div>
 
-					
-				</div>
+					<div class="row  partners-imgs-wrapper">
 
+						<div class=" partner-wrapper">
+							<img src="assets/img/corporate/uad.png" class="rounded" alt="Image 1" />
+						</div>
+						<div class=" partner-wrapper">
+							<img src="assets/img/corporate/amikom.png" class="rounded " alt="Image 2" />
+						</div>
+						<div class=" partner-wrapper">
+							<img src="assets/img/corporate/aveon.png" class="rounded " alt="Image 3" />
+						</div>
+						<div class=" partner-wrapper">
+							<img src="assets/img/corporate/avo.png" class="rounded " alt="Image 4" />
+						</div>
+						<div class=" partner-wrapper">
+							<img src="assets/img/corporate/gides.jpg" class="rounded " alt="Image 5" />
+						</div>
+
+						<div class=" partner-wrapper ">
+							<img src="assets/img/corporate/kdi.png" class="rounded " alt="Image 6" />
+						</div>
+						<div class=" partner-wrapper ">
+							<img src="assets/img/corporate/kusuma.png" class="rounded " alt="Image 7" />
+						</div>
+						<div class=" partner-wrapper ">
+							<img src="assets/img/corporate/mercu.png" class="rounded " alt="mercu" />
+						</div>
+						<div class=" partner-wrapper ">
+							<img src="assets/img/corporate/polita.png" class="rounded " alt="polita" />
+						</div>
+
+						<div class=" partner-wrapper" id="hiddenImages">
+							<img src="assets/img/corporate/ruhui-rahayu.png" class="rounded " alt="ruhui" />
+						</div>
+						<div class=" partner-wrapper" id="hiddenImages">
+							<img src="assets/img/corporate/smk-dr-sutomo-temanggung.png" class="rounded "
+								alt="Image 11" />
+						</div>
+						<div class=" partner-wrapper" id="hiddenImages">
+							<img src="assets/img/corporate/uad.png" class="rounded " alt="uad" />
+						</div>
+						<div class=" partner-wrapper" id="hiddenImages">
+							<img src="assets/img/corporate/uii.png" class="rounded " alt="uii" />
+						</div>
+						<div class=" partner-wrapper" id="hiddenImages">
+							<img src="assets/img/corporate/uin-suka.png" class="rounded " alt="uin" />
+						</div>
+
+						<div class=" partner-wrapper" id="hiddenImages">
+							<img src="assets/img/corporate/mnc.png" class="rounded " alt="mnc" />
+						</div>
+					</div>
+
+				</div>
 			</div>
 			<!-- End Clients Section -->
 		</section>
@@ -449,39 +444,39 @@
 					<div class="position-relative">
 
 						<div class="vertical-line"></div>
-
-						<div class="how-work p-2">
-							<img style="width: 100px; height: 70px;"
-								src="https://img.icons8.com/ios-filled/50/f1ac15/card-in-use.png" alt="card-in-use" />
-							<div>
-								<h5 class="how-it-work-title">Klien Membeli produk</h5>
-								<p>Klien membeli produk dialogika menggunakan kode referral dari partner dialogika</p>
-							</div>
+					  
+						<div class="how-work p-4">
+						  <div class="how-work-circle"></div>
+						  <img style="width: 70px; height: 70px;" src="https://img.icons8.com/ios-filled/50/f1ac15/card-in-use.png" alt="card-in-use" />
+						  <div>
+							<h5 class="how-it-work-title">Klien Membeli produk</h5>
+							<p>Klien membeli produk dialogika menggunakan kode referral dari partner dialogika</p>
+						  </div>
 						</div>
-
-						<div class="how-work p-2">
-							<img style="width: 70px; height: 70px;"
-								src="https://img.icons8.com/external-tal-revivo-regular-tal-revivo/48/f1ac15/external-approved-checkmark-symbol-to-verify-the-result-basic-regular-tal-revivo.png"
-								alt="validated" />
-							<div>
-								<h5 class="how-it-work-title">Validasi</h5>
-								<p>Pihak dialogika akan konfirmasi kepada partner terkait transaksi</p>
-							</div>
+					  
+						<div class="how-work p-4">
+						  <div class="how-work-circle"></div>
+						  <img style="width: 70px; height: 70px;" src="https://img.icons8.com/external-tal-revivo-regular-tal-revivo/48/f1ac15/external-approved-checkmark-symbol-to-verify-the-result-basic-regular-tal-revivo.png"
+							alt="validated" />
+						  <div>
+							<h5 class="how-it-work-title">Validasi</h5>
+							<p>Pihak dialogika akan konfirmasi kepada partner terkait transaksi</p>
+						  </div>
 						</div>
-
-						<div class="how-work p-2">
-							<img style="width: 70px; height: 70px; transform: scaleX(-1);"
-								src="https://img.icons8.com/external-smashingstocks-mixed-smashing-stocks/68/f1ac15/external-commission-digital-marketing-smashingstocks-mixed-smashing-stocks.png"
-								alt="commision" />
-
-							<div>
-								<h5 class="how-it-work-title">Terima Komisi</h5>
-								<p>Komisi dapat diklaim dan akan dikirimkan setelah H+3 terjadinya transaksi</p>
-							</div>
+					  
+						<div class="how-work p-4">
+						  <div class="how-work-circle"></div>
+						  <img style="width: 70px; height: 70px; transform: scaleX(-1);" src="https://img.icons8.com/external-smashingstocks-mixed-smashing-stocks/68/f1ac15/external-commission-digital-marketing-smashingstocks-mixed-smashing-stocks.png"
+							alt="commision" />
+						  <div>
+							<h5 class="how-it-work-title">Terima Komisi</h5>
+							<p>Komisi dapat diklaim dan akan dikirimkan setelah H+3 terjadinya transaksi</p>
+						  </div>
 						</div>
-					</div>
+					  </div>
+					  
 
-					<p class="fs-6"><b>NOTE : </b>Apabila klien membayar menggunakan sistem down payment dan
+					<p style="font-size: 15px; line-height: 1.7;"><b>NOTE : </b>Apabila klien membayar menggunakan sistem down payment dan
 						cicilan, maka komisi akan diberikan setelah member melakukan pelunasan.</p>
 
 				</div>
@@ -586,11 +581,8 @@
 		</div>
 
 		<!-- Part -->
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
 		<script src="assets/part/newevent/script.js"></script>
-		<script src="assets/part/counting-down/count.js"></script>
 		<script src="assets/part/custom-files/typewriter.js"></script>
-		<script src="assets/part/custom-files/showMorePartner.js"></script>
 
 		<script src="assets/part/international-phone-number/intlTelInput.min.js"></script>
 		<script src="assets/part/international-phone-number/script.js"></script>
@@ -598,8 +590,8 @@
 		<!-- Vendor JS Files -->
 		<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 		<script src="assets/vendor/php-email-form/validate.js"></script>
 
 		<!-- Template Main JS File -->
