@@ -5,7 +5,7 @@ $(document).on("click", ".send_contact", function () {
   var walink = "https://web.whatsapp.com/send",
     phone = "6285780007799",
     walink2 =
-      "Salam Hangat, Saya melihat *Website dialogika.co* dan saya tertarik untuk tahu lebih lanjut." +
+      "Salam Hangat, Saya melihat *Website dialogika.co Info Referral* dan saya tertarik untuk tahu lebih lanjut." +
       "%0A%0A" +
       "Sebelumnya perkenalkan saya: ",
     text_yes = "Terkirim.",

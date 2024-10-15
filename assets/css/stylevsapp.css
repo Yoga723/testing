@@ -2975,8 +2975,8 @@ a.disclaimer-style-referral {
 .vertical-line {
   position: absolute;
   top: 10px;
-  left: 110px;
-  width: 0.5px;
+  left: 115px;
+  width: 1px;
   height: calc(100% - 50px);
   background-color: #f1ac15;
   z-index: -1;
