@@ -23,11 +23,6 @@ document
 
     try {
       loading.style.display = "flex";
-      if (program == "ask-adm") {
-        loading.style.display = "none";
-
-        return;
-      }
       // Membuat task baru di ClickUp
       const createTaskResponse = await fetch(
         `https://api.clickup.com/api/v2/list/${listId}/task`,
@@ -61,20 +56,18 @@ document
         }
       );
 
-      if (createTaskResponse.status === 200 || createTaskResponse.ok) {
-        loading.style.display = "none";
+      console.log(createTaskResponse)
 
-        success.style.display = "flex";
+      if (createTaskResponse.status === 200 || createTaskResponse.ok) {
+        loading.style.display = "none"; ; 
 
         setTimeout(() => {
-          success.style.display = "none";
+          success.style.display = "none"; 
         }, 5000);
       } else {
-        loading.style.display = "none";
         throw new Error("Gagal mengirim data. Silahkan coba lagi!.");
       }
     } catch (error) {
-      loading.style.display = "none";
       console.error("Kesalahan:", error);
       alert("Terjadi kesalahan. Silakan coba lagi.");
     }
