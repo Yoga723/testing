@@ -1,0 +1,128 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Gordita-300";
+  src: url("../fonts/Gordita-Light.woff2") format("woff2"), url("../fonts/Gordita-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gordita-400";
+  src: url("../fonts/Gordita-Regular.woff2") format("woff2"), url("../fonts/Gordita-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gordita-500";
+  src: url("../fonts/Gordita-Medium.woff2") format("woff2"), url("../fonts/Gordita-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gordita-700";
+  src: url("../fonts/Gordita-Bold.woff2") format("woff2"), url("../fonts/Gordita-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  /**
+  @font family declaration
+  */
+  --tp-ff-body: Gordita-400;
+  --tp-ff-heading: Gordita-700;
+  --tp-ff-p: Gordita-400;
+  --tp-ff-fontawesome: "Font Awesome 6 Pro";
+  /**
+  @color declaration
+  */
+  --tp-common-white: #ffffff;
+  --tp-common-black: #231F20;
+  --tp-heading-primary: #0B2B6A;
+  --tp-heading-secondary: #F9C72E;
+  --tp-heading-b-light: #0B2B6A;
+  --tp-grey-1: #F8FAFA;
+  --tp-grey-2: #F5F6F8;
+  --tp-text-body: #231F20;
+  --tp-text-1: #231F20;
+  --tp-text-2: #303841; /* #777C90*/
+  --tp-theme-1: #0B2B6A;
+  --tp-theme-2: #F7F8F9;
+  --tp-border-1: #fff;
+  --tp-border-2: #245D51;
+  /**
+  @font weight declaration
+  */
+  --tp-fw-normal: normal;
+  --tp-fw-elight: 200;
+  --tp-fw-light: 300;
+  --tp-fw-regular: 400;
+  --tp-fw-medium: 500;
+  --tp-fw-sbold: 600;
+  --tp-fw-bold: 700;
+  /**
+  @font size declaration
+  */
+  --tp-fz-body: 14px;
+  --tp-fz-p: 16px;
+  --tp-fz-h1: 40px;
+  --tp-fz-h2: 36px;
+  --tp-fz-h3: 24px;
+  --tp-fz-h4: 20px;
+  --tp-fz-h5: 16px;
+  --tp-fz-h6: 14px;
+}
+
+/*-----------------------------------------------------------------------------------
+
+    Theme Name: Template Name – HTML5 Template
+    Author: ThemePure
+    Support: basictheme400@gmail.com
+    Description: Template Name  – HTML5 Template
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+
+/************ TABLE OF CONTENTS ***************
+
+    01. THEME DEFAULT CSS
+    02. HEADER CSS
+  03. BANNAR
+  04. SLIDER
+  05. FEATURE
+  06. ABOUT
+  07. CATEGORY
+  08. COURSE
+  09. CHOOSE
+  10. COUNTER
+  11. INSTRUCTOR
+  12. SUITABLE
+  13. TESTIMONIAL
+  14. BRAND
+  15. MEANMENU
+  16. BLOG
+  17. CONTACT
+  18. FAQ
+  19. CART
+  20. LOG-IN
+  21. FOOTER
+
+**********************************************/
+/*----------------------------------------*/
+/*  01. THEME DEFAULT CSS START
+/*----------------------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+/*---------------------------------
+    typography css start 
+---------------------------------*/
+#topbar, header, .offcanvas, footer {
+  font-family: var(--tp-ff-body);
+  font-size: var(--tp-fz-body);
+  font-weight: normal;
+  color: var(--tp-text-body);
+}
