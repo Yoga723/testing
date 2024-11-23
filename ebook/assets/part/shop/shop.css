@@ -111,18 +111,17 @@ h4 {
   z-index: 100000;
 }
 @media only screen and (max-width: 600px) {
-  
   form {
-      max-width: 80%;
-      transform: translateY(-150px);
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 4px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      max-height: 80vh;
-      overflow-y: scroll;
-    }
+    max-width: 80%;
+    transform: translateY(-150px);
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
 }
 /* keranjang buku */
 #cart-header {
@@ -141,7 +140,7 @@ h4 {
 }
 
 #cart-header i {
-  color: #10579D;
+  color: #10579d;
   font-size: 20px;
 }
 
@@ -149,23 +148,24 @@ h4 {
   visibility: visible;
 }
 @media only screen and (max-width: 600px) {
-  #cart-header{
+  #cart-header {
     visibility: visible;
   }
-  #cart-header button{
+  #cart-header button {
     width: 100px;
-      height: 30px;
-      background: transparent;
-      padding: 0px;
-      transform: translateY(0.5px);
-      border: none;
-      outline: none;
-      box-shadow: none;
+    height: 30px;
+    background: transparent;
+    padding: 0px;
+    transform: translateY(0.5px);
+    border: none;
+    outline: none;
+    box-shadow: none;
   }
-  #cart-header i{
-    color: #10579D;font-size:20px;
+  #cart-header i {
+    color: #10579d;
+    font-size: 20px;
   }
-  .side-bar-widget{
+  .side-bar-widget {
     visibility: hidden;
   }
 }
@@ -254,26 +254,6 @@ h4 {
   color: #fff;
   border: none;
   outline: none;
-}
-body input[type="text"],
-body input[type="number"],
-body input[type="tel"],
-body input[type="password"],
-body input[type="email"],
-body textarea {
-  background: #ffffff;
-  /* border: 1px solid #eaedff; */
-  border: 1px solid rgba(32, 191, 240, 0.3);
-  border-radius: 8px;
-  height: 45px;
-
-  width: 100%;
-  outline: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -ms-box-shadow: none;
-  -o-box-shadow: none;
-  box-shadow: none;
 }
 
 .close-btn {
@@ -365,14 +345,14 @@ body textarea {
   flex-direction: column;
 }
 
-.book-detail-popup{
+.book-detail-popup {
   background: #ffffff;
   display: flex;
   width: 50%;
   padding-bottom: 20px;
   border-radius: 5px;
 }
-.detail-popup-content{
+.detail-popup-content {
   background-color: transparent;
   width: 50%;
   height: 100%;
@@ -381,39 +361,39 @@ body textarea {
 }
 @media only screen and (max-width: 600px) {
   .flipbook {
-      background-color: rgb(0, 0, 0, 0.5);
-      height: 100%;
-      width: 100vw;
-      display: none;
-      top: 0;
-      right: 0;
-      position: fixed;
-      z-index: 999;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    .book-detail-popup {
-      background: #ffffff;
-      display: flex;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: scroll;
-      padding-bottom: 20px;
-      border-radius: 5px;
-    }
-    .product-content{
-      padding-bottom: 30px;
-    }
+    background-color: rgb(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100vw;
+    display: none;
+    top: 0;
+    right: 0;
+    position: fixed;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .book-detail-popup {
+    background: #ffffff;
+    display: flex;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+    border-radius: 5px;
+  }
+  .product-content {
+    padding-bottom: 30px;
+  }
 }
-.detail-popup-content h5{
+.detail-popup-content h5 {
   margin-top: 40px;
 }
-.detail-popup-img{
+.detail-popup-img {
   width: 50%;
   height: 100%;
 }
-.detail-popup-img img{
+.detail-popup-img img {
   width: 100%;
   height: 100%;
   border-radius: 12px;
@@ -509,7 +489,7 @@ body textarea {
   background: #10579d;
   left: 0;
 }
-img{
+img {
   max-width: 100%;
 }
 .hero_slider {
@@ -849,7 +829,7 @@ h2 {
   animation: 0.5s ease-in-out underline;
 }
 /* plus minus btn */
-.valuenum{
+.valuenum {
   display: flex;
   align-items: center;
 }
@@ -858,31 +838,50 @@ h2 {
   -webkit-appearance: none;
   margin: 0;
 }
-.valuenum button{
+.valuenum button {
   background-color: transparent;
   outline: none;
   border: none;
 }
-.valuenum i{
+.valuenum i {
   color: rgb(250, 175, 63);
 }
-.valuenum input[type="number"]{
-      background: transparent;
-      color: rgb(250, 175, 63);
-      text-align: center;
-        /* border: 1px solid #eaedff; */
-        border: none;
-        outline: none;
-        border-bottom: 1px solid rgb(250, 175, 63);
-        border-radius: 0px;
-        height: 45px;
-        padding: 0 0 0 0px;
-        width: 100%;
-        outline: none;
-        -webkit-box-shadow: none;
-        -moz-box-shadow: none;
-        -ms-box-shadow: none;
-        -o-box-shadow: none;
-        box-shadow: none;
+.valuenum input[type="number"] {
+  background: transparent;
+  color: rgb(250, 175, 63);
+  text-align: center;
+  /* border: 1px solid #eaedff; */
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(250, 175, 63);
+  border-radius: 0px;
+  height: 45px;
+  padding: 0 0 0 0px;
+  width: 100%;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
 }
 /* end plus minus btn */
+
+#cart-sidebar .custom-input {
+  background: #ffffff;
+  /*border: 1px solid #eaedff;
+  */border: 1px solid rgba(32, 191, 240, 0.3);
+  border-radius: 8px;
+  height: 45px;
+  width: 100%;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}

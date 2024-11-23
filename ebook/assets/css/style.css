@@ -2659,3 +2659,24 @@ section {
   box-shadow: 0px 0px 10px 2px #fcf221;
   -webkit-box-shadow: 0px 0px 10px 2px #fcf221;
 }
+
+
+.blue-modern-dialogika-btn {
+  background: rgb(30, 129, 208) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(30, 129, 208, 1) 0%,
+    rgba(7, 39, 107, 1) 100%
+  ) !important;
+  box-shadow: 0px 5px 16px -6px #1e81d0 !important;
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+}
+
+.blue-modern-dialogika-btn:hover {
+  border: none !important;
+  box-shadow: 0px 0px 5px 2px #1e81d0 !important;
+}
