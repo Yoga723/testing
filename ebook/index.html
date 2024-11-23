@@ -360,13 +360,14 @@
     </div>
 
     <!-- Product Area Start -->
-    <div class="container mt-custom">
+    <div class="container my-5">
       <div class="row justify-content-center" id="productArea">
         <div id="cardbook" class="col-lg-3 col-md-4 col-6 custom-padding" v-for="book in books" :key="book.id">
           <div class="card h-100 d-flex flex-column p-0">
             <!-- Image Section -->
-            <img :src="book.gambar" class="img-fluid object-fit-contain" style="min-height: 260px; cursor: pointer;"
-              loading="lazy" :alt="book.judul" @click="openModal(book)">
+            <img :src="book.gambar" class="img-fluid object-fit-contain"
+              style="min-height: 300px; max-height: 300px; cursor: pointer;" loading="lazy" :alt="book.judul"
+              @click="openModal(book)">
 
             <div class="card-body d-flex flex-column align-items-start text-start flex-grow-1 w-100"
               style="border-top: 1px solid rgba(120, 120, 120, 0.526);">
@@ -390,7 +391,7 @@
 
             <!-- Add to Cart Button -->
             <div class="card-footer d-flex justify-content-center mt-auto text-center border-0 pt-0 pb-3">
-              <button type="button" class="blue-modern-dialogika-btn rounded p-2 text-white border-0"
+              <button type="button" class="blue-modern-dialogika-btn rounded py-2 px-4 text-white border-0"
                 @click="addToCart(book)">Add to Cart</button>
             </div>
           </div>
@@ -493,7 +494,7 @@
                 "kategori": "Non-Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":15,
+                "discount": 15,
               },
               {
                 "id": 3,
@@ -504,7 +505,7 @@
                 "kategori": "Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":0,
+                "discount": 0,
               },
               {
                 "id": 4,
@@ -515,7 +516,7 @@
                 "kategori": "Non-Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":0,
+                "discount": 0,
               },
               {
                 "id": 5,
@@ -526,7 +527,7 @@
                 "kategori": "Non-Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":10,
+                "discount": 10,
               },
               {
                 "id": 6,
@@ -537,7 +538,7 @@
                 "kategori": "Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":0,
+                "discount": 0,
               },
               {
                 "id": 7,
@@ -548,7 +549,7 @@
                 "kategori": "Non-Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":0,
+                "discount": 0,
               },
               {
                 "id": 8,
@@ -559,7 +560,7 @@
                 "kategori": "Non-Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":0,
+                "discount": 0,
               },
               {
                 "id": 9,
@@ -570,7 +571,7 @@
                 "kategori": "Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":0,
+                "discount": 0,
               },
               {
                 "id": 10,
@@ -581,7 +582,7 @@
                 "kategori": "Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":0,
+                "discount": 0,
               },
               {
                 "id": 11,
@@ -592,7 +593,7 @@
                 "kategori": "Fiksi",
                 "deskripsi": "Hello World !",
                 "quantity": 0,
-                "discount":0,
+                "discount": 0,
               }
             ],
             cartItems: [],
@@ -659,13 +660,15 @@
               return;
             }
 
-            let message = `Checkout Details Buku :%0ANama: ${this.customerName}%0AWhatsApp: ${this.whatsappNumber}%0AEmail: ${this.email}%0A--------------------------------%0A`;
+            let message = `Halo kaak!! 👋%0AAku ${this.customerName} mau pesan buku-buku ini :%0A`;
 
             this.cartItems.forEach(item => {
               message += `- ${item.judul}%0AQuantity: ${item.quantity}%0APrice: Rp${(item.harga * item.quantity).toLocaleString()}%0A--------------------------------%0A`;
             });
 
-            message += `Total Amount: Rp${this.total.toLocaleString()}`;
+            let customerDetails = `%0A📝 Detail Pemesan %0ANama: ${this.customerName}%0AWhatsApp: ${this.whatsappNumber}%0AEmail: ${this.email}%0A--------------------------------%0A`;
+
+            message += `Total Amount: Rp${this.total.toLocaleString()}%0A ${customerDetails}`;
 
             const whatsappUrl = `https://api.whatsapp.com/send?phone=6285162992597&text=${message}`;
             window.open(whatsappUrl, '_blank');
